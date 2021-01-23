@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>For No One</title>
+        <style>
+            html, body {
+                font-family: sans-serif;
+                background-color: #18191a;
+                color: #e4e6eb;
+            }
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .chat {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                background-color: #242526;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 12px 28px 0 var(--shadow-2),0 2px 4px 0 var(--shadow-1);
+            }
+
+            .chatMsgs {
+                display: flex;
+                flex-direction: column;
+                max-height: 500px;
+                height: 500px;
+                padding: 10px;
+                overflow-y: auto;
+            }
+
+            .message {
+                padding-top: 10px;
+                padding-right: 20px;
+                padding-left: 20px;
+                padding-bottom: 10px;
+                border-radius: 20px;
+                max-width: 70%;
+                margin-bottom: 5px;
+            }
+
+            .chatMsgs .player {
+                display: flex;
+                justify-content: end;
+            }
+
+            .chatMsgs .player .message {
+                display: flex;
+                justify-content: end;
+                background-color: #0084ff;
+            }
+
+            .noOneNameInputWrapper {
+                display: none;
+                margin-left: 10px;
+            }
+
+            .noOneName {
+                display:flex;
+                align-items: center;
+            }
+
+            .profilePic {
+                border-radius: 50%;
+            }
+
+            .newPic {
+                display:none;
+            }
+
+            .horizontalLine {
+                margin-top:10px;
+                margin-bottom:10px;
+                height:1px;
+                background-color:#303030;
+            }
+
+            .noOneNameText {
+                margin-left: 10px;
+            }
+
+            .inputText {
+                background-color: #3a3a3a;
+                border:0px;
+                border-radius: 50px;
+                padding: 10px;
+                color:white;
+            }
+
+            .pic:hover .newPic {
+                display:block;
+                opacity: 0.2;
+                position:fixed;
+                margin-left:1px;
+                margin-top:-35px;
+            }
+
+            .pic:hover {
+                cursor:pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="chat">
+                <div class="noOne">
+                    <span id="noOneName" class="noOneName">
+                        <div class="pic" id="pic">
+                            <img src="pp.png" class="profilePic" id="profilePic" width="32px" height="32px" />
+                            <img src="newPic.svg" class="newPic" width="30px" />
+                            <input type="file" id="imgUpload" style="display:none" accept="image/x-png,image/gif,image/jpeg"/> 
+                        </div>
+                        <span id="noOneNameText" class="noOneNameText">No One</span>
+                        <span id="noOneNameInputWrapper" class="noOneNameInputWrapper"><input type="text" class="input" id="noOneNameInput" value="No One"/></span>
+                    </span>
+                </div>
+                <div class="horizontalLine"></div>
+                <div class="chatMsgs" id="chat"></div>
+                <input type="text" id="in" class="inputText" placeholder="Write something..." />
+            </div>
+        </div>
+        <script type="text/javascript">
+            var noOneName = "No One";
+            const noOneNameText = document.getElementById('noOneNameText');
+            const noOneNameInput = document.getElementById('noOneNameInput');
+            const noOneNameInputWrapper = document.getElementById('noOneNameInputWrapper');
+            const chat = document.getElementById('chat');
+            const input = document.getElementById('in');
+            const pic = document.getElementById('pic');
+            const profilePic = document.getElementById('profilePic');
+            const imgUpload = document.getElementById('imgUpload');
+
+            input.addEventListener('keyup', function(event) {
+                if(event.key === 'Enter' && input.value.length) {
+                    sendMsg();
+                }
+            });
+
+            imgUpload.onchange = function (evt) {
+                var tgt = evt.target || window.event.srcElement,
+                    files = tgt.files;
+
+                // FileReader support
+                if(FileReader && files && files.length) {
+                    let fr = new FileReader();
+                    fr.onload = function () {
+                        profilePic.src = fr.result;
+                    }
+                    fr.readAsDataURL(files[0]);
+                }
+
+                // Not supported
+                else {
+                    // fallback -- perhaps submit the input to an iframe and temporarily store
+                    // them on the server until the user's session ends.
+                }
+            }
+
+            pic.addEventListener('click', function(event) {
+                imgUpload.click();
+            });
+
+            noOneNameText.addEventListener('click', function(event) {
+                noOneNameText.style.display = 'none';
+                noOneNameInputWrapper.style.display = 'inline';
+                noOneNameInput.addEventListener('keyup', function(event) {
+                    if(event.key === 'Enter' && noOneNameInput.value.length) {
+                        setName();
+                        noOneNameText.style.display = 'inline';
+                        noOneNameInputWrapper.style.display = 'none';
+                    }
+                });
+                noOneNameInput.select();
+            });
+            
+            const appendMsg = (msg) => {
+                let newMsgContainer = document.createElement('div');
+                let newSpeechBalloon = document.createElement('span');
+                let newMsgText = document.createTextNode(msg);
+                newMsgContainer.className = 'player';
+                newSpeechBalloon.className = 'message';
+                newMsgContainer.appendChild(newSpeechBalloon);
+                newSpeechBalloon.appendChild(newMsgText);
+                chat.appendChild(newMsgContainer);
+            }
+
+            const sendMsg = () => {
+                appendMsg(input.value);
+                input.value = '';
+                chat.scrollTop = chat.scrollHeight;
+            }
+
+            const setName = () => {
+                if(noOneNameInput.value.length != 0) {
+                    noOneName = noOneNameInput.value;
+                }
+                noOneNameText.innerHTML = noOneName;
+            }
+        </script>
+    </body>
+</html>
