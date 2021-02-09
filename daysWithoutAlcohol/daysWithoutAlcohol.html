@@ -131,11 +131,10 @@
             }
             
             var soberDays = getCookie('soberDays');
-            console.log(soberDays);
             var startDate = getCookie('startDate').split(',');
             startDate = months[startDate[0]] + ' ' + startDate[1];
 
-            if(currDay > soberDays.length - 364) {
+            if(currDay >= soberDays.length - 364) {
                 soberDays = soberDays + '0';
                 setCookie('soberDays', soberDays, 'Sat, 01 Jan 2022 12:00:00 UTC');
             }
