@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Days without alcohol</title>
+        <style>
+            html, body {
+                font-family: sans-serif;
+                background-color: #0d1117;
+                color: #c9d1d9;
+            }
+
+            .wrapper {
+                width: auto;
+                font-size: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .calendar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                margin-right:10px;
+            }
+
+            .week {
+                margin-right:5px;
+                height: 87.5px;
+            }
+
+            .mb-1 {
+                margin-bottom:12px;
+            }
+
+            .mt-1 {
+                margin-top:12px;
+            }
+
+            .align-left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn {
+                position: relative;
+                display: inline-block;
+                padding: 5px 16px;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                white-space: nowrap;
+                vertical-align: middle;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                border: 1px solid;
+                    border-top-color: currentcolor;
+                    border-right-color: currentcolor;
+                    border-bottom-color: currentcolor;
+                    border-left-color: currentcolor;
+                border-radius: 6px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                transition: .2s cubic-bezier(.3,0,.5,1);
+                transition-property: all;
+                text-decoration:none;
+            }
+
+            .btn-sober {
+                text-align: center !important;
+                color: #fff;
+                background-color: #238636;
+                border-color: #2ea043;
+            }
+
+            .btn-drunk {
+                background-color: #21262d;
+                border-color: #30363d;
+                color: #f85149;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="align-left">
+                <span id="title"></span>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <span class="mb-1 mt-1">Mon</span>
+                    <span class="mb-1">Wed</span>
+                    <span>Fri</span>
+                </div>
+                <div class="calendar" id="calendar"></div>
+            </div>
+            <div>
+                <a class="text-center btn btn-drunk" onclick="IGotDrunk()">I got drunk...</a>
+                <a class="text-center btn btn-sober" onclick="incrementSoberDays()">Another day sober!</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            const months = {0:'Jan', 1:'Feb', 2:'Mar', 3:'Apr', 4:'May', 5:'Jun', 6:'Jul', 7:'Aug', 8:'Sep', 9:'Oct', 10:'Nov', 11:'Dic'};
+            const calendar = document.getElementById('calendar');
+            const title = document.getElementById('title');
+            const svgNS = 'http://www.w3.org/2000/svg';
+            const dayVectorSize = '10';
+            const soberColor = '#27d545';
+            const upcomingDayColor = '#161b22';
+            const currDate = new Date();
+            const currDay = currDate.getDay();
+            var totalSoberDays = 0;
+
+            if(!document.cookie.length) {
+                setCookie('soberDays', getNewCalendar(), 'Sat, 01 Jan 2022 12:00:00 UTC');
+            }
+            
+            var soberDays = getCookie('soberDays');
+            console.log(soberDays);
+            var startDate = getCookie('startDate').split(',');
+            startDate = months[startDate[0]] + ' ' + startDate[1];
+
+            if(currDay > soberDays.length - 364) {
+                soberDays = soberDays + '0';
+                setCookie('soberDays', soberDays, 'Sat, 01 Jan 2022 12:00:00 UTC');
+            }
+            else if(soberDays.length == 371 && currDay == 0){
+                soberDays = soberDays.substr(7) + '0';
+                setCookie('soberDays', soberDays, 'Sat, 01 Jan 2022 12:00:00 UTC');
+            }
+
+            function getNewCalendar() {
+                let response;
+                for(response = ""; response.length < 364; response += '0');
+                for(let i = 0; i <= currDay; ++i) {
+                    response += '0';
+                }
+                return response;
+            }
+
+            function deleteCookie(key) {
+                document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            }
+
+            function IGotDrunk() {
+                deleteCookie('soberDays');
+                deleteCookie('startDate');
+                location.reload();
+            }
+
+            function setCookie(key, value, expires) {
+                document.cookie = key + '=' + value + '; expires=' + expires + '; path=/;';
+            }
+
+            function getCookie(cname) {
+                let name = cname + '=';
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return '';
+            }
+
+            function incrementSoberDays() {
+                if(totalSoberDays == 0) {
+                    setCookie('startDate', currDate.getMonth() + ',' + currDate.getDate(), 'Sat, 01 Jan 2022 12:00:00 UTC');
+                }
+                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', 'Sat, 01 Jan 2022 12:00:00 UTC');
+                location.reload();
+            }
+            
+            for(let i = 0, k = 0; i <= 52; ++i) {
+                let newWeekContainer = document.createElement('div');
+                newWeekContainer.setAttribute('class', 'week');
+                for(let j = 0; j < 7 && k < soberDays.length; ++j) {
+                    let dayRect = document.createElementNS(svgNS, 'rect');
+                    dayRect.setAttribute('width', dayVectorSize);
+                    dayRect.setAttribute('height', dayVectorSize);
+                    dayRect.setAttribute('rx', '2px');
+                    if(soberDays[k] == '1') totalSoberDays++;
+                    dayRect.setAttribute('fill', (soberDays[k++] == '1')?soberColor:upcomingDayColor);
+                    let newDayVector = document.createElementNS(svgNS, 'svg');
+                    newDayVector.setAttribute('width', dayVectorSize);
+                    newDayVector.setAttribute('height', dayVectorSize);
+                    newDayVector.appendChild(dayRect);
+                    let newDayContainer = document.createElement('div');
+                    newDayContainer.appendChild(newDayVector);
+                    newWeekContainer.appendChild(newDayContainer);
+                }
+                calendar.appendChild(newWeekContainer);
+            }
+
+            if(totalSoberDays == 0) {
+                title.innerHTML = 'Not started yet.';
+            }
+            else {
+                title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days.';
+            }
+        </script>
+    </body>
+</html>
