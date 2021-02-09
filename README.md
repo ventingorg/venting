@@ -13,3 +13,13 @@ You can even change your No One's name and profile picture!
 ![For No One example](docs/imgs/forNoOne.png)
 
 You can try it [here](https://garz4.github.io/venting/forNoOne).
+
+## Days Without Alcohol
+
+Pretty straight forward. A GitHub-like calendar in which, every day, you can mark it as another day that you didn't have any alcohol!
+
+Be careful pressing **I got drunk...,** as it will delete **ALL** of your progress.
+
+![For No One example](docs/imgs/daysWithoutAlcohol.png)
+
+You can try it [here](https://garz4.github.io/venting/daysWithoutAlcohol).
