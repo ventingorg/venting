@@ -125,6 +125,7 @@
             const currDate = new Date();
             const currDay = currDate.getDay();
             var totalSoberDays = 0;
+            var totalDays = 0;
 
             if(!document.cookie.length) {
                 setCookie('soberDays', getNewCalendar(), 'Sat, 01 Jan 2022 12:00:00 UTC');
@@ -198,6 +199,7 @@
                     dayRect.setAttribute('height', dayVectorSize);
                     dayRect.setAttribute('rx', '2px');
                     if(soberDays[k] == '1') totalSoberDays++;
+                    if(totalSoberDays > 0) totalDays++;
                     dayRect.setAttribute('fill', (soberDays[k++] == '1')?soberColor:upcomingDayColor);
                     let newDayVector = document.createElementNS(svgNS, 'svg');
                     newDayVector.setAttribute('width', dayVectorSize);
@@ -214,7 +216,7 @@
                 title.innerHTML = 'Not started yet.';
             }
             else {
-                title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days.';
+                title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days out of ' + totalDays + ' days.';
             }
         </script>
     </body>
