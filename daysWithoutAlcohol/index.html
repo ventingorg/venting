@@ -121,6 +121,7 @@
             const svgNS = 'http://www.w3.org/2000/svg';
             const dayVectorSize = '10';
             const soberColor = '#27d545';
+            const drunkColor = '#f85149';
             const upcomingDayColor = '#161b22';
             const currDate = new Date();
             const currDay = currDate.getDay();
@@ -158,8 +159,7 @@
             }
 
             function IGotDrunk() {
-                deleteCookie('soberDays');
-                deleteCookie('startDate');
+                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '2', 'Sat, 01 Jan 2022 12:00:00 UTC');
                 location.reload();
             }
 
@@ -198,9 +198,18 @@
                     dayRect.setAttribute('width', dayVectorSize);
                     dayRect.setAttribute('height', dayVectorSize);
                     dayRect.setAttribute('rx', '2px');
-                    if(soberDays[k] == '1') totalSoberDays++;
+                    if(soberDays[k] == '1') { 
+                        totalSoberDays++;
+                        dayRect.setAttribute('fill', soberColor);
+                    }
+                    else if(soberDays[k] == '2') {
+                        dayRect.setAttribute('fill', drunkColor);
+                    }
+                    else {
+                        dayRect.setAttribute('fill', upcomingDayColor);
+                    }
+                    k++;
                     if(totalSoberDays > 0) totalDays++;
-                    dayRect.setAttribute('fill', (soberDays[k++] == '1')?soberColor:upcomingDayColor);
                     let newDayVector = document.createElementNS(svgNS, 'svg');
                     newDayVector.setAttribute('width', dayVectorSize);
                     newDayVector.setAttribute('height', dayVectorSize);
