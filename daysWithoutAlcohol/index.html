@@ -110,7 +110,7 @@
                 <div class="calendar" id="calendar"></div>
             </div>
             <div>
-                <a class="text-center btn btn-drunk" onclick="IGotDrunk()">I got drunk...</a>
+                <a class="text-center btn btn-drunk" onclick="incrementDrunkDays()">I drank alcohol</a>
                 <a class="text-center btn btn-sober" onclick="incrementSoberDays()">Another day sober!</a>
             </div>
         </div>
@@ -158,7 +158,7 @@
                 document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             }
 
-            function IGotDrunk() {
+            function incrementDrunkDays() {
                 setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '2', 'Sat, 01 Jan 2022 12:00:00 UTC');
                 location.reload();
             }
