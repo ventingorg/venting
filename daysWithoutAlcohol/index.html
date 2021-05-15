@@ -44,6 +44,14 @@
                 margin-bottom:12px;
             }
 
+            .mb-2 {
+                margin-bottom:24px;
+            }
+
+            .mb-3 {
+                margin-bottom:36px;
+            }
+
             .mt-1 {
                 margin-top:12px;
             }
@@ -51,7 +59,7 @@
             .align-left {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
 
             .btn {
@@ -98,6 +106,10 @@
     </head>
     <body>
         <div class="wrapper">
+            <div class="align-left mb-3">
+                <input type="text" class="input" id="username-input" style="display:none"/><h1 id="username">Username</h1>
+                <input type="text" class="input" id="description-input" style="display:none"/><h2 id="description">Description</h2>
+            </div>
             <div class="align-left">
                 <span id="title"></span>
             </div>
@@ -111,11 +123,16 @@
             </div>
             <div>
                 <a class="text-center btn btn-drunk" onclick="incrementDrunkDays()">I drank alcohol</a>
-                <a class="text-center btn btn-sober" onclick="incrementSoberDays()">Another day sober!</a>
+                <a class="text-center btn btn-sober" onclick="incrementSoberDays()">Another day fully sober!</a>
             </div>
         </div>
         <script type="text/javascript">
+            const futureDate = 'Sat, 01 Jan 2022 12:00:00 UTC';
             const months = {0:'Jan', 1:'Feb', 2:'Mar', 3:'Apr', 4:'May', 5:'Jun', 6:'Jul', 7:'Aug', 8:'Sep', 9:'Oct', 10:'Nov', 11:'Dic'};
+            const username = document.getElementById('username');
+            const usernameInput = document.getElementById('username-input');
+            const description = document.getElementById('description');
+            const descriptionInput = document.getElementById('description-input');
             const calendar = document.getElementById('calendar');
             const title = document.getElementById('title');
             const svgNS = 'http://www.w3.org/2000/svg';
@@ -128,8 +145,48 @@
             var totalSoberDays = 0;
             var totalDays = 0;
 
+            function refresh() {
+                location.reload();
+            }
+
+            username.addEventListener('click', function(event) {
+                username.style.display = 'none';
+                usernameInput.style.display = 'inline';
+                usernameInput.style.marginTop = '12px'; //Following mt-1 order
+                usernameInput.style.marginBottom = '16px'; //Personalized 
+
+                usernameInput.addEventListener('keyup', function(event) {
+                    if(event.key === 'Enter' && usernameInput.value.length) {
+                        setCookie('username', usernameInput.value, futureDate);
+                        username.style.display = 'inline';
+                        usernameInput.style.display = 'none';
+                        refresh();
+                    }
+                });
+
+                usernameInput.select();
+            });
+
+            description.addEventListener('click', function(event) {
+                description.style.display = 'none';
+                descriptionInput.style.display = 'inline';
+                descriptionInput.style.marginTop = '12px'; //Following mt-1 order
+                descriptionInput.style.marginBottom = '16px'; //Personalized 
+
+                descriptionInput.addEventListener('keyup', function(event) {
+                    if(event.key === 'Enter' && descriptionInput.value.length) {
+                        setCookie('description', descriptionInput.value, futureDate);
+                        description.style.display = 'inline';
+                        descriptionInput.style.display = 'none';
+                        refresh();
+                    }
+                });
+
+                descriptionInput.select();
+            });
+
             if(!document.cookie.length) {
-                setCookie('soberDays', getNewCalendar(), 'Sat, 01 Jan 2022 12:00:00 UTC');
+                setCookie('soberDays', getNewCalendar(), futureDate);
             }
             
             var soberDays = getCookie('soberDays');
@@ -138,16 +195,17 @@
 
             if(currDay >= soberDays.length - 364) {
                 soberDays = soberDays + '0';
-                setCookie('soberDays', soberDays, 'Sat, 01 Jan 2022 12:00:00 UTC');
+                setCookie('soberDays', soberDays, futureDate);
             }
+
             else if(soberDays.length == 371 && currDay == 0){
                 soberDays = soberDays.substr(7) + '0';
-                setCookie('soberDays', soberDays, 'Sat, 01 Jan 2022 12:00:00 UTC');
+                setCookie('soberDays', soberDays, futureDate);
             }
 
             function getNewCalendar() {
                 let response;
-                for(response = ""; response.length < 364; response += '0');
+                for(response = ''; response.length < 364; response += '0');
                 for(let i = 0; i <= currDay; ++i) {
                     response += '0';
                 }
@@ -159,8 +217,8 @@
             }
 
             function incrementDrunkDays() {
-                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '2', 'Sat, 01 Jan 2022 12:00:00 UTC');
-                location.reload();
+                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '2', futureDate);
+                refresh();
             }
 
             function setCookie(key, value, expires) {
@@ -184,10 +242,10 @@
 
             function incrementSoberDays() {
                 if(totalSoberDays == 0) {
-                    setCookie('startDate', currDate.getMonth() + ',' + currDate.getDate(), 'Sat, 01 Jan 2022 12:00:00 UTC');
+                    setCookie('startDate', currDate.getMonth() + ',' + currDate.getDate(), futureDate);
                 }
-                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', 'Sat, 01 Jan 2022 12:00:00 UTC');
-                location.reload();
+                setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', futureDate);
+                refresh();
             }
             
             for(let i = 0, k = 0; i <= 52; ++i) {
@@ -226,6 +284,20 @@
             }
             else {
                 title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days out of ' + totalDays + ' days.';
+            }
+
+            var curr = getCookie('username');
+
+            if(curr.length) {
+                username.innerHTML = curr;
+                usernameInput.value = curr;
+            }
+
+            curr = getCookie('description');
+
+            if(curr.length) {
+                description.innerHTML = curr;
+                descriptionInput.value = curr;
             }
         </script>
     </body>
