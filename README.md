@@ -2,7 +2,7 @@
 
 We all need some time to ourselves.
 
-## ![For No One example](daysWithoutAlcohol/imgs/forNoOne.png) For No One
+##  For No One
 
 This is a private way of expressing yourself: a chat in which you can write **whatever** you like.
 
@@ -14,7 +14,7 @@ You can even change your No One's name and profile picture!
 
 You can try it [here](https://garz4.github.io/venting/forNoOne).
 
-## Days Without Alcohol
+## <img src="daysWithoutAlcohol/imgs/forNoOne.png"> Days Without Alcohol
 
 Pretty straight forward. A GitHub-like calendar in which, every day, you can mark it as another day that you didn't have any alcohol!
 
