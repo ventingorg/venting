@@ -1,4 +1,4 @@
-# ![For No One example](imgs/forNoOne.png) Days Without Alcohol
+# <img src="imgs/favicon.ico" alt="Icon" height="25px" > Days Without Alcohol
 
 Pretty straight forward. A GitHub-like calendar in which, every day, you can mark it as another day that you didn't have any alcohol!
 
