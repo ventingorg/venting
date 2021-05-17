@@ -2,7 +2,7 @@
 
 We all need some time to ourselves.
 
-## For No One
+## ![For No One example](daysWithoutAlcohol/imgs/forNoOne.png) For No One
 
 This is a private way of expressing yourself: a chat in which you can write **whatever** you like.
 
@@ -20,6 +20,6 @@ Pretty straight forward. A GitHub-like calendar in which, every day, you can mar
 
 **I got drunk...,**, on the other hand, will mark the current day as a non-sober day.
 
-![For No One example](docs/imgs/daysWithoutAlcohol.png)
+![Days Without Alcohol example](docs/imgs/daysWithoutAlcohol.png)
 
 You can try it [here](https://garz4.github.io/venting/daysWithoutAlcohol).
