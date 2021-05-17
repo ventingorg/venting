@@ -18,7 +18,7 @@ You can try it [here](https://garz4.github.io/venting/forNoOne).
 
 Pretty straight forward. A GitHub-like calendar in which, every day, you can mark it as another day that you didn't have any alcohol!
 
-**I got drunk...,**, on the other hand, will mark the current day as a non-sober day.
+**I got drunk...,** on the other hand, will mark the current day as a non-sober day.
 
 ![Days Without Alcohol example](docs/imgs/daysWithoutAlcohol.png)
 
