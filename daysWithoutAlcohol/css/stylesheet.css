@@ -1,0 +1,98 @@
+html, body {
+    font-family: sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+.wrapper {
+    width: auto;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin-right:10px;
+}
+
+.week {
+    margin-right:5px;
+    height: 87.5px;
+}
+
+.mb-1 {
+    margin-bottom:12px;
+}
+
+.mb-2 {
+    margin-bottom:24px;
+}
+
+.mb-3 {
+    margin-bottom:36px;
+}
+
+.mt-1 {
+    margin-top:12px;
+}
+
+.align-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: .2s cubic-bezier(.3,0,.5,1);
+    transition-property: all;
+    text-decoration:none;
+}
+
+.btn-sober {
+    text-align: center !important;
+    color: #fff;
+    background-color: #238636;
+    border-color: #2ea043;
+}
+
+.btn-drunk {
+    background-color: #21262d;
+    border-color: #30363d;
+    color: #f85149;
+}
