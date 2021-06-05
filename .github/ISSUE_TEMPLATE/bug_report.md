@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ### Project
-The name of the project.
+The full name of the project.
 
 ### Describe the bug
 A clear and concise description of what the bug is.
