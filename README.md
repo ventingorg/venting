@@ -1,4 +1,4 @@
-# <img src="docs/imgs/venting-logo.png" alt="venting" height="25px" >
+# <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" >
 
 We all need some time to ourselves.
 
