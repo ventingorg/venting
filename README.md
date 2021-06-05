@@ -1,4 +1,4 @@
-# venting
+# <img src="docs/imgs/venting-logo.png" alt="venting" height="25px" >
 
 We all need some time to ourselves.
 
