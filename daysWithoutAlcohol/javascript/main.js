@@ -15,6 +15,9 @@ const currDate = new Date();
 const currDay = currDate.getDay();
 var totalSoberDays = 0;
 var totalDays = 0;
+var soberDays;
+var startDate;
+var curr;
 
 function refresh() {
     location.reload();
@@ -60,9 +63,9 @@ if(!document.cookie.length) {
     setCookie('soberDays', getNewCalendar(), futureDate);
 }
 
-var soberDays = getCookie('soberDays');
-var startDate = getCookie('startDate').split(',');
-startDate = months[startDate[0]] + ' ' + startDate[1];
+soberDays = getCookie('soberDays');
+startDate = getCookie('startDate').split('-');
+startDate = startDate[2] + ' ' + months[startDate[1]] + ' ' + startDate[0];
 
 if(currDay >= soberDays.length - 364) {
     soberDays = soberDays + '0';
@@ -113,7 +116,7 @@ function getCookie(cname) {
 
 function incrementSoberDays() {
     if(totalSoberDays == 0) {
-        setCookie('startDate', currDate.getMonth() + ',' + currDate.getDate(), futureDate);
+        setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() + '-' + currDate.getDate(), futureDate);
     }
     setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', futureDate);
     refresh();
@@ -157,7 +160,7 @@ else {
     title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days out of ' + totalDays + ' days.';
 }
 
-var curr = getCookie('username');
+curr = getCookie('username');
 
 if(curr.length) {
     username.innerHTML = curr;
