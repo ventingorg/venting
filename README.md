@@ -1,5 +1,5 @@
 # <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" >
-<img src="https://img.shields.io/github/license/Garz4/venting" alt="MIT" height="20px" >
+[![MIT license](https://img.shields.io/github/license/Garz4/venting)](https://github.com/Garz4/venting/blob/main/LICENSE)
 
 We all need some time to ourselves.
 
