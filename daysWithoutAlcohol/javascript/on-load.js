@@ -23,46 +23,6 @@ var soberDays;
 var startDate;
 var curr;
 
-function refresh() {
-    location.reload();
-}
-
-username.addEventListener('click', function(event) {
-    username.style.display = 'none';
-    usernameInput.style.display = 'inline';
-    usernameInput.style.marginTop = '12px'; //Following mt-1 order
-    usernameInput.style.marginBottom = '16px'; //Personalized 
-
-    usernameInput.addEventListener('keyup', function(event) {
-        if(event.key === 'Enter' && usernameInput.value.length) {
-            setCookie('username', usernameInput.value, futureDate);
-            username.style.display = 'inline';
-            usernameInput.style.display = 'none';
-            refresh();
-        }
-    });
-
-    usernameInput.select();
-});
-
-description.addEventListener('click', function(event) {
-    description.style.display = 'none';
-    descriptionInput.style.display = 'inline';
-    descriptionInput.style.marginTop = '12px'; //Following mt-1 order
-    descriptionInput.style.marginBottom = '16px'; //Personalized 
-
-    descriptionInput.addEventListener('keyup', function(event) {
-        if(event.key === 'Enter' && descriptionInput.value.length) {
-            setCookie('description', descriptionInput.value, futureDate);
-            description.style.display = 'inline';
-            descriptionInput.style.display = 'none';
-            refresh();
-        }
-    });
-
-    descriptionInput.select();
-});
-
 if(!document.cookie.length) {
     setCookie('soberDays', getNewCalendar(), futureDate);
 }
@@ -79,68 +39,6 @@ if(currDay >= soberDays.length - 364) {
 else if(soberDays.length == 371 && currDay == 0){
     soberDays = soberDays.substr(7) + '0';
     setCookie('soberDays', soberDays, futureDate);
-}
-
-function getNewCalendar() {
-    let response;
-    for(response = ''; response.length < 364; response += '0');
-
-    for(let i = 0; i <= currDay; ++i) {
-        response += '0';
-    }
-
-    return response;
-}
-
-function deleteCookie(key) {
-    document.cookie = key + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-}
-
-function incrementDrunkDays() {
-    let quantity = document.getElementById('quantity').value;
-
-    if(quantity[0] === 'D') {
-        quantity = '9';
-    }
-
-    else {
-        quantity++;
-    }
-
-    setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + quantity, futureDate);
-    refresh();
-}
-
-function setCookie(key, value, expires) {
-    document.cookie = key + '=' + value + '; expires=' + expires + '; path=/;';
-}
-
-function getCookie(cname) {
-    let name = cname + '=';
-    let ca = document.cookie.split(';');
-
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-
-    return '';
-}
-
-function incrementSoberDays() {
-    if(totalSoberDays == 0) {
-        setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() + '-' + currDate.getDate(), futureDate);
-    }
-
-    setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', futureDate);
-    refresh();
 }
 
 for(let i = 0, k = 0; i <= 52; ++i) {
