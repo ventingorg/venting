@@ -9,7 +9,10 @@ const title = document.getElementById('title');
 const svgNS = 'http://www.w3.org/2000/svg';
 const dayVectorSize = '10';
 const soberColor = '#27d545';
-const drunkColor = '#f85149';
+const lowDrunkColor = '#440e0e';
+const midDrunkColor = '#6d0000';
+const highDrunkColor = '#a62626';
+const wastedColor = '#f85149';
 const upcomingDayColor = '#161b22';
 const currDate = new Date();
 const currDay = currDate.getDay();
@@ -91,7 +94,15 @@ function deleteCookie(key) {
 }
 
 function incrementDrunkDays() {
-    setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '2', futureDate);
+    let quantity = document.getElementById('quantity').value;
+    if(quantity[0] === 'D') {
+        quantity = '9';
+    }
+    else {
+        quantity++;
+    }
+    console.log(quantity);
+    setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + quantity, futureDate);
     refresh();
 }
 
@@ -134,8 +145,17 @@ for(let i = 0, k = 0; i <= 52; ++i) {
             totalSoberDays++;
             dayRect.setAttribute('fill', soberColor);
         }
-        else if(soberDays[k] == '2') {
-            dayRect.setAttribute('fill', drunkColor);
+        else if(soberDays[k] == '2' || soberDays[k] == '3') {
+            dayRect.setAttribute('fill', lowDrunkColor);
+        }
+        else if(soberDays[k] == '4' || soberDays[k] == '5') {
+            dayRect.setAttribute('fill', midDrunkColor);
+        }
+        else if(soberDays[k] == '6' || soberDays[k] == '7') {
+            dayRect.setAttribute('fill', highDrunkColor);
+        }
+        else if(soberDays[k] == '8' || soberDays[k] == '9') {
+            dayRect.setAttribute('fill', wastedColor);
         }
         else {
             dayRect.setAttribute('fill', upcomingDayColor);
