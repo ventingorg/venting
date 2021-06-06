@@ -96,3 +96,17 @@ html, body {
     border-color: #30363d;
     color: #f85149;
 }
+
+.bubble {
+    pointer-events: none;
+    white-space: nowrap;
+    position: absolute;
+    z-index: 99999;
+    padding: 10px;
+    font-size: 12px;
+    color: var(--color-fg-on-emphasis,var(--color-auto-gray-4));
+    text-align: center;
+    background: rgba(0,0,0,.8);
+    border-radius: 6px;
+    box-sizing: border-box;
+}
