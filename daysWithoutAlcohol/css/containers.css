@@ -80,6 +80,13 @@
     color: white;
 }
 
+.theme-switch:checked ~ main {
+    --text: #c9d1d9;
+    --bg: #0d1117;
+    --btn-drunk-bg: #21262d;
+    --btn-drunk-bc: #30363d;
+  }  
+
 .bubble {
     pointer-events: none;
     white-space: nowrap;
