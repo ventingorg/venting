@@ -5,6 +5,7 @@ function updateThemeToDark() {
     highDrunkColor = '#a62626';
     wastedColor = '#f85149';
     upcomingDayColor = '#161b22';
+    themeInput.checked = true;
 }
 
 function updateThemeToLight() {
@@ -14,4 +15,19 @@ function updateThemeToLight() {
     highDrunkColor = '#a13030';
     wastedColor = '#6e2121';
     upcomingDayColor = '#ebedf0';
+    themeInput.checked = false;
+}
+
+function updateTheme() {
+    if (themeInput.checked) {
+        updateThemeToDark();
+        setCookie('themeMode', 'darkMode', futureDate);
+    }
+
+    else {
+        updateThemeToLight();
+        setCookie('themeMode', 'lightMode', futureDate);
+    }
+
+    refresh();
 }

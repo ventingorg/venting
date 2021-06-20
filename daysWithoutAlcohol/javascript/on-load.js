@@ -12,6 +12,7 @@ const svgNS = 'http://www.w3.org/2000/svg';
 const dayVectorSize = '10';
 const currDate = new Date();
 const currDay = currDate.getDay();
+const themeMode = getCookie('themeMode');
 var soberColor;
 var lowDrunkColor;
 var midDrunkColor;
@@ -28,12 +29,17 @@ if (!soberDays.length) {
     setCookie('soberDays', getNewCalendar(), futureDate);
 }
 
-if (themeInput.checked) {
-    updateThemeToDark();
+if (!themeMode.length) {
+    setCookie('themeMode', 'lightMode', futureDate);
+    updateThemeToLight();
+}
+
+else if (themeMode === 'lightMode') {
+    updateThemeToLight();
 }
 
 else {
-    updateThemeToLight();
+    updateThemeToDark();
 }
 
 startDate = getCookie('startDate').split('-');
