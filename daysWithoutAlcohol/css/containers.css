@@ -20,11 +20,11 @@
 .column {
     display: flex;
     flex-direction: column;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .week {
-    margin-right:5px;
+    margin-right: 5px;
     height: 87.5px;
 }
 
@@ -53,7 +53,7 @@
     appearance: none;
     transition: .2s cubic-bezier(.3,0,.5,1);
     transition-property: all;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .btn-sober {
@@ -63,17 +63,26 @@
     border-color: #2ea043;
 }
 
+.btn-sober:hover {
+    background-color: #2ea043;
+}
+
 .btn-drunk {
-    background-color: #21262d;
-    border-color: #30363d;
+    text-align: center !important;
+    background-color: var(--btn-drunk-bg, #fafbfc);
+    border-color:  var(--btn-drunk-bc, #d9dadc);
     color: #f85149;
+}
+
+.btn-drunk:hover {
+    background-color: #f85149;
+    border-color: #f85149;
+    color: white;
 }
 
 .bubble {
     pointer-events: none;
     white-space: nowrap;
-    position: absolute;
-    z-index: 99999;
     padding: 10px;
     font-size: 12px;
     color: var(--color-fg-on-emphasis,var(--color-auto-gray-4));
@@ -81,4 +90,9 @@
     background: rgba(0,0,0,.8);
     border-radius: 6px;
     box-sizing: border-box;
+}
+
+.floating {
+    position: absolute;
+    z-index: 99999;
 }

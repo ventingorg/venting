@@ -4,9 +4,9 @@ function refresh() {
 
 function getNewCalendar() {
     let response;
-    for(response = ''; response.length < 364; response += '0');
+    for (response = ''; response.length < 364; response += '0');
 
-    for(let i = 0; i <= currDay; ++i) {
+    for (let i = 0; i <= currDay; ++i) {
         response += '0';
     }
 
@@ -16,7 +16,7 @@ function getNewCalendar() {
 function incrementDrunkDays() {
     let quantity = document.getElementById('quantity').value;
 
-    if(quantity[0] === 'D') {
+    if (quantity[0] === 'D') {
         quantity = '9';
     }
 
@@ -29,7 +29,7 @@ function incrementDrunkDays() {
 }
 
 function incrementSoberDays() {
-    if(totalSoberDays == 0) {
+    if (totalSoberDays == 0) {
         setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() + '-' + currDate.getDate(), futureDate);
     }
 

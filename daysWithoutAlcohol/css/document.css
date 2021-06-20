@@ -1,5 +1,16 @@
 html, body {
     font-family: sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+}
+
+main {
+  background: var(--bg, white);
+  color: var(--text, #24292e);
+  text-align: center;
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
 }

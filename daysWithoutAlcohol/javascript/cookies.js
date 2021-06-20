@@ -1,8 +1,16 @@
+/*
+ * Cookies so far:
+ * description - 
+ * soberDays - 
+ * startDate - 
+ * username - 
+ */
+
 function getCookie(cname) {
     let name = cname + '=';
     let ca = document.cookie.split(';');
 
-    for(let i = 0; i < ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
 
         while (c.charAt(0) == ' ') {
