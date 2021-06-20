@@ -26,133 +26,133 @@ var startDate;
 var curr;
 
 if (!soberDays.length) {
-    setCookie('soberDays', getNewCalendar(), futureDate);
+  setCookie('soberDays', getNewCalendar(), futureDate);
 }
 
 if (!themeMode.length) {
-    setCookie('themeMode', 'lightMode', futureDate);
-    updateThemeToLight();
+  setCookie('themeMode', 'lightMode', futureDate);
+  updateThemeToLight();
 }
 
 else if (themeMode === 'lightMode') {
-    updateThemeToLight();
+  updateThemeToLight();
 }
 
 else {
-    updateThemeToDark();
+  updateThemeToDark();
 }
 
 startDate = getCookie('startDate').split('-');
 startDate = startDate[2] + ' ' + months[startDate[1]] + ' ' + startDate[0];
 
 if (currDay >= soberDays.length - 364) {
-    soberDays = soberDays + '0';
-    setCookie('soberDays', soberDays, futureDate);
+  soberDays = soberDays + '0';
+  setCookie('soberDays', soberDays, futureDate);
 }
 
 else if (soberDays.length == 371 && currDay == 0) {
-    soberDays = soberDays.substr(7) + '0';
-    setCookie('soberDays', soberDays, futureDate);
+  soberDays = soberDays.substr(7) + '0';
+  setCookie('soberDays', soberDays, futureDate);
 }
 
 for (let i = 0, k = 0; i <= 52; ++i) {
-    let newWeekContainer = document.createElement('div');
-    newWeekContainer.setAttribute('class', 'week');
+  let newWeekContainer = document.createElement('div');
+  newWeekContainer.setAttribute('class', 'week');
 
-    for (let j = 0; j < 7 && k < soberDays.length; ++j) {
-        let curr = soberDays[k];
-        let dayRect = document.createElementNS(svgNS, 'rect');
-        dayRect.setAttribute('width', dayVectorSize);
-        dayRect.setAttribute('height', dayVectorSize);
-        dayRect.setAttribute('rx', '2px');
+  for (let j = 0; j < 7 && k < soberDays.length; ++j) {
+    let curr = soberDays[k];
+    let dayRect = document.createElementNS(svgNS, 'rect');
+    dayRect.setAttribute('width', dayVectorSize);
+    dayRect.setAttribute('height', dayVectorSize);
+    dayRect.setAttribute('rx', '2px');
 
-        if (soberDays[k] == '0') {
-            dayRect.setAttribute('fill', upcomingDayColor);
-        }
-
-        else if (soberDays[k] == '1') { 
-            totalSoberDays++;
-            dayRect.setAttribute('fill', soberColor);
-        }
-
-        else {
-            dayRect.addEventListener('mouseover', function(event) {
-                let toBubble = '';
-                let thisLeft = event.target.getBoundingClientRect().left;
-                let thisTop = event.target.getBoundingClientRect().top;
-
-                if (curr == '9') {
-                    toBubble = 'Wasted';
-                    bubble.style.left = (thisLeft-30) + 'px';
-                }
-
-                else {
-                    toBubble = curr-1 + ' can';
-                    if (curr-1 != 1) toBubble += 's';
-                    toBubble += ' of beer';
-                    bubble.style.left = (thisLeft-60) + 'px';
-                }
-
-                bubble.style.top = (thisTop-40) + 'px';
-                bubble.innerHTML = '<strong>' + toBubble + '</strong>';
-                bubble.removeAttribute('hidden');
-            }, false);
-
-            dayRect.addEventListener('mouseout', function(event) {
-                bubble.style.top = '1px';
-                bubble.style.left = '1px';
-                bubble.setAttribute('hidden', 'hidden');
-            }, false);
-
-            if (soberDays[k] == '2' || soberDays[k] == '3') {
-                dayRect.setAttribute('fill', lowDrunkColor);
-            }
-
-            else if (soberDays[k] == '4' || soberDays[k] == '5') {
-                dayRect.setAttribute('fill', midDrunkColor);
-            }
-
-            else if (soberDays[k] == '6' || soberDays[k] == '7') {
-                dayRect.setAttribute('fill', highDrunkColor);
-            }
-
-            else if (soberDays[k] == '8' || soberDays[k] == '9') {
-                dayRect.setAttribute('fill', wastedColor);
-            }
-        }
-        
-        k++;
-        if (totalSoberDays > 0) totalDays++;
-
-        let newDayVector = document.createElementNS(svgNS, 'svg');
-        newDayVector.setAttribute('width', dayVectorSize);
-        newDayVector.setAttribute('height', dayVectorSize);
-        newDayVector.appendChild(dayRect);
-
-        let newDayContainer = document.createElement('div');
-        newDayContainer.appendChild(newDayVector);
-        newWeekContainer.appendChild(newDayContainer);
+    if (soberDays[k] == '0') {
+      dayRect.setAttribute('fill', upcomingDayColor);
     }
-    calendar.appendChild(newWeekContainer);
+
+    else if (soberDays[k] == '1') { 
+      totalSoberDays++;
+      dayRect.setAttribute('fill', soberColor);
+    }
+
+    else {
+      dayRect.addEventListener('mouseover', function(event) {
+      let toBubble = '';
+      let thisLeft = event.target.getBoundingClientRect().left;
+      let thisTop = event.target.getBoundingClientRect().top;
+
+      if (curr == '9') {
+        toBubble = 'Wasted';
+        bubble.style.left = (thisLeft-30) + 'px';
+      }
+
+      else {
+        toBubble = curr-1 + ' can';
+        if (curr-1 != 1) toBubble += 's';
+        toBubble += ' of beer';
+        bubble.style.left = (thisLeft-60) + 'px';
+      }
+
+      bubble.style.top = (thisTop-40) + 'px';
+      bubble.innerHTML = '<strong>' + toBubble + '</strong>';
+      bubble.removeAttribute('hidden');
+      }, false);
+
+      dayRect.addEventListener('mouseout', function(event) {
+      bubble.style.top = '1px';
+      bubble.style.left = '1px';
+      bubble.setAttribute('hidden', 'hidden');
+      }, false);
+
+      if (soberDays[k] == '2' || soberDays[k] == '3') {
+        dayRect.setAttribute('fill', lowDrunkColor);
+      }
+
+      else if (soberDays[k] == '4' || soberDays[k] == '5') {
+        dayRect.setAttribute('fill', midDrunkColor);
+      }
+
+      else if (soberDays[k] == '6' || soberDays[k] == '7') {
+        dayRect.setAttribute('fill', highDrunkColor);
+      }
+
+      else if (soberDays[k] == '8' || soberDays[k] == '9') {
+        dayRect.setAttribute('fill', wastedColor);
+      }
+    }
+    
+    k++;
+    if (totalSoberDays > 0) totalDays++;
+
+    let newDayVector = document.createElementNS(svgNS, 'svg');
+    newDayVector.setAttribute('width', dayVectorSize);
+    newDayVector.setAttribute('height', dayVectorSize);
+    newDayVector.appendChild(dayRect);
+
+    let newDayContainer = document.createElement('div');
+    newDayContainer.appendChild(newDayVector);
+    newWeekContainer.appendChild(newDayContainer);
+  }
+  calendar.appendChild(newWeekContainer);
 }
 
 if (totalSoberDays == 0) {
-    title.innerHTML = 'Not started yet.';
+  title.innerHTML = 'Not started yet.';
 }
 else {
-    title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days out of ' + totalDays + ' days.';
+  title.innerHTML = 'Started on ' + startDate + ', ' + totalSoberDays + ' total sober days out of ' + totalDays + ' days.';
 }
 
 curr = getCookie('username');
 
 if (curr.length) {
-    username.innerHTML = curr;
-    usernameInput.value = curr;
+  username.innerHTML = curr;
+  usernameInput.value = curr;
 }
 
 curr = getCookie('description');
 
 if (curr.length) {
-    description.innerHTML = curr;
-    descriptionInput.value = curr;
+  description.innerHTML = curr;
+  descriptionInput.value = curr;
 }
