@@ -9,68 +9,68 @@ const profilePic = document.getElementById('profilePic');
 const imgUpload = document.getElementById('imgUpload');
 
 input.addEventListener('keyup', function(event) {
-    if(event.key === 'Enter' && input.value.length) {
-        sendMsg();
-    }
+  if(event.key === 'Enter' && input.value.length) {
+    sendMsg();
+  }
 });
 
 imgUpload.onchange = function (evt) {
-    var tgt = evt.target || window.event.srcElement,
-        files = tgt.files;
+  var tgt = evt.target || window.event.srcElement,
+    files = tgt.files;
 
-    // FileReader support
-    if(FileReader && files && files.length) {
-        let fr = new FileReader();
-        fr.onload = function () {
-            profilePic.src = fr.result;
-        }
-        fr.readAsDataURL(files[0]);
+  // FileReader support
+  if(FileReader && files && files.length) {
+    let fr = new FileReader();
+    fr.onload = function () {
+      profilePic.src = fr.result;
     }
+    fr.readAsDataURL(files[0]);
+  }
 
-    // Not supported
-    else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
-        // them on the server until the user's session ends.
-    }
+  // Not supported
+  else {
+    // fallback -- perhaps submit the input to an iframe and temporarily store
+    // them on the server until the user's session ends.
+  }
 }
 
 pic.addEventListener('click', function(event) {
-    imgUpload.click();
+  imgUpload.click();
 });
 
 noOneNameText.addEventListener('click', function(event) {
-    noOneNameText.style.display = 'none';
-    noOneNameInputWrapper.style.display = 'inline';
-    noOneNameInput.addEventListener('keyup', function(event) {
-        if(event.key === 'Enter' && noOneNameInput.value.length) {
-            setName();
-            noOneNameText.style.display = 'inline';
-            noOneNameInputWrapper.style.display = 'none';
-        }
-    });
-    noOneNameInput.select();
+  noOneNameText.style.display = 'none';
+  noOneNameInputWrapper.style.display = 'inline';
+  noOneNameInput.addEventListener('keyup', function(event) {
+    if(event.key === 'Enter' && noOneNameInput.value.length) {
+      setName();
+      noOneNameText.style.display = 'inline';
+      noOneNameInputWrapper.style.display = 'none';
+    }
+  });
+  noOneNameInput.select();
 });
 
 const appendMsg = (msg) => {
-    let newMsgContainer = document.createElement('div');
-    let newSpeechBalloon = document.createElement('span');
-    let newMsgText = document.createTextNode(msg);
-    newMsgContainer.className = 'player';
-    newSpeechBalloon.className = 'message';
-    newMsgContainer.appendChild(newSpeechBalloon);
-    newSpeechBalloon.appendChild(newMsgText);
-    chat.appendChild(newMsgContainer);
+  let newMsgContainer = document.createElement('div');
+  let newSpeechBalloon = document.createElement('span');
+  let newMsgText = document.createTextNode(msg);
+  newMsgContainer.className = 'player';
+  newSpeechBalloon.className = 'message';
+  newMsgContainer.appendChild(newSpeechBalloon);
+  newSpeechBalloon.appendChild(newMsgText);
+  chat.appendChild(newMsgContainer);
 }
 
 const sendMsg = () => {
-    appendMsg(input.value);
-    input.value = '';
-    chat.scrollTop = chat.scrollHeight;
+  appendMsg(input.value);
+  input.value = '';
+  chat.scrollTop = chat.scrollHeight;
 }
 
 const setName = () => {
-    if(noOneNameInput.value.length != 0) {
-        noOneName = noOneNameInput.value;
-    }
-    noOneNameText.innerHTML = noOneName;
+  if(noOneNameInput.value.length != 0) {
+    noOneName = noOneNameInput.value;
+  }
+  noOneNameText.innerHTML = noOneName;
 }
