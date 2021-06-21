@@ -51,7 +51,7 @@ noOneNameText.addEventListener('click', function(event) {
   noOneNameInput.select();
 });
 
-const appendMsg = (msg) => {
+function appendMsg(msg) {
   let newMsgContainer = document.createElement('div');
   let newSpeechBalloon = document.createElement('span');
   let newMsgText = document.createTextNode(msg);
@@ -62,15 +62,16 @@ const appendMsg = (msg) => {
   chat.appendChild(newMsgContainer);
 }
 
-const sendMsg = () => {
+function sendMsg() {
   appendMsg(input.value);
   input.value = '';
   chat.scrollTop = chat.scrollHeight;
 }
 
-const setName = () => {
+function setName() {
   if(noOneNameInput.value.length != 0) {
     noOneName = noOneNameInput.value;
   }
+  
   noOneNameText.innerHTML = noOneName;
 }

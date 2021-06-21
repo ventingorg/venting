@@ -77,31 +77,31 @@ for (let i = 0, k = 0; i <= 52; ++i) {
 
     else {
       dayRect.addEventListener('mouseover', function(event) {
-      let toBubble = '';
-      let thisLeft = event.target.getBoundingClientRect().left;
-      let thisTop = event.target.getBoundingClientRect().top;
+        let toBubble = '';
+        let thisLeft = event.target.getBoundingClientRect().left;
+        let thisTop = event.target.getBoundingClientRect().top;
 
-      if (curr == '9') {
-        toBubble = 'Wasted';
-        bubble.style.left = (thisLeft-30) + 'px';
-      }
+        if (curr == '9') {
+          toBubble = 'Wasted';
+          bubble.style.left = (thisLeft-30) + 'px';
+        }
 
-      else {
-        toBubble = curr-1 + ' can';
-        if (curr-1 != 1) toBubble += 's';
-        toBubble += ' of beer';
-        bubble.style.left = (thisLeft-60) + 'px';
-      }
+        else {
+          toBubble = curr-1 + ' can';
+          if (curr-1 != 1) toBubble += 's';
+          toBubble += ' of beer';
+          bubble.style.left = (thisLeft-60) + 'px';
+        }
 
-      bubble.style.top = (thisTop-40) + 'px';
-      bubble.innerHTML = '<strong>' + toBubble + '</strong>';
-      bubble.removeAttribute('hidden');
+        bubble.style.top = (thisTop-40) + 'px';
+        bubble.innerHTML = '<strong>' + toBubble + '</strong>';
+        bubble.removeAttribute('hidden');
       }, false);
 
       dayRect.addEventListener('mouseout', function(event) {
-      bubble.style.top = '1px';
-      bubble.style.left = '1px';
-      bubble.setAttribute('hidden', 'hidden');
+        bubble.style.top = '1px';
+        bubble.style.left = '1px';
+        bubble.setAttribute('hidden', 'hidden');
       }, false);
 
       if (soberDays[k] == '2' || soberDays[k] == '3') {
