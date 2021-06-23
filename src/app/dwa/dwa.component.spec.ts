@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FnoComponent } from './fno.component';
+import { DwaComponent } from './dwa.component';
 
-describe('FnoComponent', () => {
-  let component: FnoComponent;
-  let fixture: ComponentFixture<FnoComponent>;
+describe('DwaComponent', () => {
+  let component: DwaComponent;
+  let fixture: ComponentFixture<DwaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FnoComponent ]
+      declarations: [ DwaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FnoComponent);
+    fixture = TestBed.createComponent(DwaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
