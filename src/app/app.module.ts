@@ -19,5 +19,4 @@ import { FnoComponent } from './fno/fno.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }
