@@ -1,0 +1,100 @@
+html, body {
+  font-family: sans-serif;
+  background-color: #18191a;
+  color: #e4e6eb;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: #242526;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px 0 var(--shadow-2),0 2px 4px 0 var(--shadow-1);
+}
+
+.chatMsgs {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  height: 500px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.message {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  max-width: 70%;
+  margin-bottom: 5px;
+}
+
+.chatMsgs .player {
+  display: flex;
+  justify-content: end;
+}
+
+.chatMsgs .player .message {
+  display: flex;
+  justify-content: end;
+  background-color: #0084ff;
+}
+
+.noOneNameInputWrapper {
+  display: none;
+  margin-left: 10px;
+}
+
+.noOneName {
+  display:flex;
+  align-items: center;
+}
+
+.profilePic {
+  border-radius: 50%;
+}
+
+.newPic {
+  display:none;
+}
+
+.horizontalLine {
+  margin-top:10px;
+  margin-bottom:10px;
+  height:1px;
+  background-color:#303030;
+}
+
+.noOneNameText {
+  margin-left: 10px;
+}
+
+.inputText {
+  background-color: #3a3a3a;
+  border:0px;
+  border-radius: 50px;
+  padding: 10px;
+  color:white;
+}
+
+.pic:hover .newPic {
+  display:block;
+  opacity: 0.2;
+  position:fixed;
+  margin-left:1px;
+  margin-top:-35px;
+}
+
+.pic:hover {
+  cursor:pointer;
+}
