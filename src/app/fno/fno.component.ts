@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  title = 'venting';
+export class FnoComponent {
+  title = 'For No One';
 }
 
 var noOneName = "No One";
@@ -19,7 +19,7 @@ const input = document.getElementById('in');
 const pic = document.getElementById('pic');
 const profilePic = document.getElementById('profilePic');
 const imgUpload = document.getElementById('imgUpload');
-
+/*
 input.addEventListener('keyup', function(event) {
   if(event.key === 'Enter' && input.value.length) {
     sendMsg();
@@ -87,3 +87,4 @@ function setName() {
   
   noOneNameText.innerHTML = noOneName;
 }
+*/

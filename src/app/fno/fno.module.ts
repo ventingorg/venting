@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { FnoRoutingModule } from './fno-routing.module';
+import { FnoComponent } from './fno.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    FnoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FnoRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [FnoComponent]
 })
 
 export class AppModule { }
