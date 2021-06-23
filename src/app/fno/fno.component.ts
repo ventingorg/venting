@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Fn } from '../fn';
 
 @Component({
   selector: 'app-fno',
@@ -7,11 +6,7 @@ import { Fn } from '../fn';
   styleUrls: ['./fno.component.scss']
 })
 export class FnoComponent implements OnInit {
-  fn: Fn = {
-    id: 1,
-    name: 'Windstorm'
-  };
-
+  
   constructor() { }
 
   ngOnInit(): void {
