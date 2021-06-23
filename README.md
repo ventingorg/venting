@@ -1,27 +1,27 @@
-# Venting
+# <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" >
+[![MIT license](https://img.shields.io/github/license/Garz4/venting)](https://github.com/Garz4/venting/blob/main/LICENSE)
+[![Stars](https://img.shields.io/github/stars/Garz4/venting?style=social)]()
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+We all need some time to ourselves.
 
-## Development server
+##  For No One
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This is a private way of expressing yourself: a chat in which you can write **whatever** you like.
 
-## Code scaffolding
+The cool thing is: **no one is going to read it**, but yourself.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You can even change your No One's name and profile picture!
 
-## Build
+![For No One example](docs/imgs/forNoOne.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can try it [here](https://garz4.github.io/venting/forNoOne).
 
-## Running unit tests
+## <img src="daysWithoutAlcohol/imgs/favicon.ico" alt="Icon" height="25px" > Days Without Alcohol
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Pretty straight forward. A GitHub-like calendar in which, every day, you can mark it as another day that you didn't have any alcohol!
 
-## Running end-to-end tests
+**I drank alcohol,** on the other hand, will mark the current day as a non-sober day.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![Days Without Alcohol example](docs/imgs/daysWithoutAlcohol.png)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+You can try it [here](https://garz4.github.io/venting/daysWithoutAlcohol).
