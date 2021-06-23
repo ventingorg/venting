@@ -1,4 +1,18 @@
-<p>fno works!</p>
-<h2>{{fn.name}} Details</h2>
-<div><span>id: </span>{{fn.id}}</div>
-<div><span>name: </span>{{fn.name}}</div>
+<div class="wrapper">
+  <div class="chat">
+    <div class="noOne">
+      <span id="noOneName" class="noOneName">
+        <div class="pic" id="pic">
+          <img src="imgs/pp.png" class="profilePic" id="profilePic" width="32px" height="32px" />
+          <img src="imgs/newPic.svg" class="newPic" width="30px" />
+          <input type="file" id="imgUpload" style="display:none" accept="image/x-png,image/gif,image/jpeg"/> 
+        </div>
+        <span id="noOneNameText" class="noOneNameText">No One</span>
+        <span id="noOneNameInputWrapper" class="noOneNameInputWrapper"><input type="text" class="input" id="noOneNameInput" value="No One"/></span>
+      </span>
+    </div>
+    <div class="horizontalLine"></div>
+    <div class="chatMsgs" id="chat"></div>
+    <input type="text" id="in" class="inputText" placeholder="Aa" />
+  </div>
+</div>

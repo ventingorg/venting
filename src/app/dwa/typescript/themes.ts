@@ -1,3 +1,4 @@
+/*
 function updateThemeToDark() {
   soberColor = '#27d545';
   lowDrunkColor = '#440e0e';
@@ -31,3 +32,4 @@ function updateTheme() {
 
   refresh();
 }
+*/

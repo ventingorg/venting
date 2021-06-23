@@ -1,3 +1,4 @@
+/*
 username.addEventListener('click', function(event) {
   username.style.display = 'none';
   usernameInput.style.display = 'inline';
@@ -33,3 +34,4 @@ description.addEventListener('click', function(event) {
 
   descriptionInput.select();
 });
+*/

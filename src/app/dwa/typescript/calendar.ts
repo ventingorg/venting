@@ -1,3 +1,4 @@
+/*
 function refresh() {
   location.reload();
 }
@@ -36,3 +37,4 @@ function incrementSoberDays() {
   setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', futureDate);
   refresh();
 }
+*/
