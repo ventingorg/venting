@@ -25,16 +25,19 @@ function incrementDrunkDays() {
     quantity++;
   }
 
-  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + quantity, futureDate);
+  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + quantity,
+            futureDate);
   refresh();
 }
 
 function incrementSoberDays() {
   if (totalSoberDays == 0) {
-    setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() + '-' + currDate.getDate(), futureDate);
+    setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() +
+              '-' + currDate.getDate(), futureDate);
   }
 
-  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1', futureDate);
+  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1',
+            futureDate);
   refresh();
 }
 */
