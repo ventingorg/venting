@@ -1,6 +1,6 @@
 # Local workflow for Angular CLI
 
-name: Build
+name: Angular CLI
 on:
   push:
     branches:
