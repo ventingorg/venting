@@ -1,6 +1,7 @@
 # <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" >
 [![MIT license](https://img.shields.io/github/license/Garz4/venting)](https://github.com/Garz4/venting/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/Garz4/venting?style=social)]()
+[![Workflow](https://img.shields.io/github/workflow/status/Garz4/venting/Deno)]()
 
 We all need some time to ourselves.
 
