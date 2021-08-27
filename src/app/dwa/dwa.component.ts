@@ -5,10 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dwa.component.html',
   styleUrls: ['./dwa.component.scss']
 })
-export class DwaComponent implements OnInit {
+export class DwaComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

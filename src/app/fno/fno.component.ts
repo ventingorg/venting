@@ -5,11 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './fno.component.html',
   styleUrls: ['./fno.component.scss']
 })
-export class FnoComponent implements OnInit {
+export class FnoComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }
  /* 
