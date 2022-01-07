@@ -1,7 +1,7 @@
 <p align="center">
   <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" ><br /><br />
-  <a href="https://github.com/Garz4/venting/actions">
-    <img src="https://github.com/Garz4/venting/workflows/Build/badge.svg" alt="Workflow">
+  <a href="https://github.com/Garz4/venting/actions/workflows/build.yml">
+    <img src="https://github.com/Garz4/venting/actions/workflows/build.yml/badge.svg" alt="Angular CLI">
   </a>
   <a href="https://github.com/Garz4/venting/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/Garz4/venting" alt="MIT license">
@@ -9,7 +9,6 @@
   <a href="https://github.com/Garz4/venting/actions">
     <img src="https://img.shields.io/github/stars/Garz4/venting?style=social" alt="Stars">
   </a>
-  [![Stars](https://img.shields.io/github/stars/Garz4/venting?style=social)]()
   <br /><i>We all need some time to ourselves.</i>
   <hr />
   <br />
