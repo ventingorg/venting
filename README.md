@@ -11,7 +11,6 @@
   </a>
   <br /><i>We all need some time to ourselves.</i>
   <hr />
-  <br />
 </p>
 
 venting are a list of tools to help anyone take care of themselves.
