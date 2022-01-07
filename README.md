@@ -1,14 +1,21 @@
 <p align="center">
   <img src="docs/imgs/venting-logo.png" alt="venting" height="70px" ><br /><br />
-  [![Workflow](https://github.com/Garz4/venting/workflows/Build/badge.svg)](https://github.com/Garz4/venting/actions)
-  [![MIT license](https://img.shields.io/github/license/Garz4/venting)](https://github.com/Garz4/venting/blob/main/LICENSE)
+  <a href="https://github.com/Garz4/venting/actions">
+    <img src="https://github.com/Garz4/venting/workflows/Build/badge.svg" alt="Workflow">
+  </a>
+  <a href="https://github.com/Garz4/venting/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Garz4/venting" alt="MIT license">
+  </a>
+  <a href="https://github.com/Garz4/venting/actions">
+    <img src="https://img.shields.io/github/stars/Garz4/venting?style=social" alt="Stars">
+  </a>
   [![Stars](https://img.shields.io/github/stars/Garz4/venting?style=social)]()
-  <br /><i>Seeking simplicity, flowing relentlessly, forging greatness.</i>
+  <br /><i>We all need some time to ourselves.</i>
   <hr />
   <br />
 </p>
 
-We all need some time to ourselves.
+venting are a list of tools to help anyone take care of themselves.
 
 ## <img src="docs/imgs/forNoOne.ico" alt="Icon" height="25px" > For No One
 
