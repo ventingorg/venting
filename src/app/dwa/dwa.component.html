@@ -13,7 +13,7 @@
  - https://github.com/Garz4/venting/blob/main/LICENSE
  -->
  
- <input
+<input
   type="checkbox"
   id="theme-switch"
   name="theme-switch"
@@ -21,18 +21,53 @@
   onclick="updateTheme()"
 />
 <main class="wrapper">
-  <div class="align-left mb-3">
-    <input type="text" class="input" id="username-input" style="display:none"/>
+  <div class="mb-3">
+    <input
+      type="text"
+      class="input"
+      id="username-input"
+      style="display:none"
+    />
     <h1 id="username">Username</h1>
     <input
       type="text"
       class="input"
       id="description-input"
-      style="display:none"/>
+      style="display:none"
+    />
     <h2 id="description">Description</h2>
   </div>
-  <div class="align-left">
-    <span id="title"></span>
+  <div class="row gap-2">
+    <div class="self-center">
+      <div class="row">
+        <h1 id="start-date-h1"></h1>
+      </div>
+      <h3>Start date</h3>
+    </div>
+    <div class="self-center">
+      <h1 id="percentage-total-h1" class="nmb-1"></h1>
+      <div class="row justify-center">
+        <h2 id="total-sober-days-h1"></h2>
+        <h3 class="out-of" id="total-days-h3">/</h3>
+      </div>
+      <h3>Total sober days</h3>
+    </div>
+    <div class="column gap-0 self-center">
+      <h1 id="percentage-month-h1" class="nmb-1"></h1>
+      <span class="row justify-center">
+        <h2 id="total-sober-month-h1"></h2>
+        <h3 class="out-of" id="total-month-h3">/</h3>
+      </span>
+      <h3>This month</h3>
+    </div>
+    <div class="self-center">
+      <h1 id="longest-streak"></h1>
+      <h3>Longest streak</h3>
+    </div>
+    <div class="self-center">
+      <h1 id="current-streak"></h1>
+      <h3>Current streak</h3>
+    </div>
   </div>
   <div class="row">
     <div class="column">
@@ -43,29 +78,35 @@
     <div class="calendar" id="calendar"></div>
   </div>
   <div class="mb-2">
-  <span>
-    I drank
-    <select id="quantity">
-      <option selected>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>Dunno...</option>
-    </select>
-    cans of beer.
-  </span>
+    <span>
+      I drank
+      <select id="quantity">
+        <option selected>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>Dunno...</option>
+      </select>
+      cans of beer.
+    </span>
   </div>
   <div>
     <a
       class="text-center btn btn-drunk"
-      onclick="incrementDrunkDays()"
+      onclick="todayDrunk()"
     >I drank alcohol</a>
-    <a class="text-center btn btn-sober"
-      onclick="incrementSoberDays()"
+    <a
+      class="text-center btn btn-sober"
+      onclick="todaySober()"
     >Another day fully sober!</a>
+    <a
+      class="text-center btn btn-hangover"
+      onclick="todayHangover()"
+    >Hangover...</a>
   </div>
+  <span>We use cookies for this.</span>
   <div id="bubble" class="floating bubble" hidden></div>
 </main>

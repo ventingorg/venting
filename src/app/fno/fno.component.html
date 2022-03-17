@@ -14,8 +14,8 @@
  -->
  
  <main class="wrapper">
-  <div class="chat">
-    <div class="noOne">
+  <div class="party">
+    <div class="party" id="party">
       <span id="noOneName" class="noOneName">
         <div class="pic" id="pic">
           <img
@@ -25,7 +25,11 @@
             width="32px"
             height="32px"
           />
-          <img src="imgs/newPic.svg" class="newPic" width="30px" />
+          <img
+            src="imgs/newPic.svg"
+            class="newPic"
+            width="30px"
+          />
           <input
             type="file"
             id="imgUpload"
@@ -33,13 +37,19 @@
             accept="image/x-png,image/gif,image/jpeg"
           /> 
         </div>
-        <span id="noOneNameText" class="noOneNameText">No One</span>
+        <span id="noOneNameText" class="noOneNameText"></span>
         <span id="noOneNameInputWrapper" class="noOneNameInputWrapper">
-          <input type="text" class="input" id="noOneNameInput" value="No One"/>
+          <input
+            type="text"
+            class="input"
+            id="noOneNameInput"
+          />
         </span>
       </span>
     </div>
-    <div class="horizontalLine"></div>
+    <a class="btn btn-add" onclick="addNoOne()">+</a>
+  </div>
+  <div class="chat">
     <div class="chatMsgs" id="chat"></div>
     <input type="text" id="in" class="inputText" placeholder="Aa" />
   </div>
