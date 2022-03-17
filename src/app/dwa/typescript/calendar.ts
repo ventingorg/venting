@@ -14,30 +14,50 @@ function getNewCalendar() {
   return response;
 }
 
-function incrementDrunkDays() {
+function todayDrunk() {
   let quantity = document.getElementById('quantity').value;
 
   if (quantity[0] === 'D') {
     quantity = '9';
-  }
-
-  else {
+  } else {
     quantity++;
   }
 
-  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + quantity,
-            futureDate);
+  setCookie(
+    'soberDays',
+    soberDays.substring(0, soberDays.length - 1) + quantity,
+    futureDate
+  );
+
   refresh();
 }
 
-function incrementSoberDays() {
-  if (totalSoberDays == 0) {
-    setCookie('startDate', currDate.getFullYear() + '-' + currDate.getMonth() +
-              '-' + currDate.getDate(), futureDate);
+function todaySober() {
+  if (totalSoberDays === 0) {
+    setCookie(
+      'startDate',
+      currDate.getFullYear() + '-' + currDate.getMonth() + '-' +
+      currDate.getDate(),
+      futureDate
+    );
   }
 
-  setCookie('soberDays', soberDays.substr(0,soberDays.length-1) + '1',
-            futureDate);
+  setCookie(
+    'soberDays',
+    soberDays.substring(0, soberDays.length - 1) + '1',
+    futureDate
+  );
+
+  refresh();
+}
+
+function todayHangover() {
+  setCookie(
+    'soberDays',
+    soberDays.substring(0, soberDays.length - 1) + 'h',
+    futureDate
+  );
+
   refresh();
 }
 */
