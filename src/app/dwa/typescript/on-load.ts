@@ -10,7 +10,6 @@ const themeInput = document.getElementById('theme-switch');
 const description = document.getElementById('description');
 const descriptionInput = document.getElementById('description-input');
 const calendar = document.getElementById('calendar');
-const title = document.getElementById('title');
 const bubble = document.getElementById('bubble');
 const totalSoberDaysHTML = document.getElementById('total-sober-days-h1');
 const percentageSoberDaysHTML = document.getElementById('percentage-total-h1');
@@ -183,25 +182,21 @@ for (let i = 0, k = 0; i <= 52; ++i) {
   calendar.appendChild(newWeekContainer);
 }
 
-if (totalSoberDays === 0) {
-  title.innerHTML = 'Not started yet.';
-} else {
-  let totalPercentage;
-  let monthPercentage;
-  let today = currDate.getDate();
+let totalPercentage;
+let monthPercentage;
+let today = currDate.getDate();
 
-  startDateHTML.innerHTML = startDate;
-  totalSoberDaysHTML.innerHTML = totalSoberDays;
-  totalDaysHTML.innerHTML = '/' + totalDays;
-  totalSoberMonthHTML.innerHTML = soberDaysThisMonth;
-  totalMonthHTML.innerHTML = '/' + today;
-  longestStreakHTML.innerHTML = longestStreak;
-  currentStreakHTML.innerHTML = currentStreak;
-  totalPercentage = ((totalSoberDays * 100) / totalDays).toFixed(2);
-  monthPercentage = ((soberDaysThisMonth * 100) / today).toFixed(2);
-  percentageSoberDaysHTML.innerHTML = totalPercentage + '%';
-  percentageSoberMonthHTML.innerHTML = monthPercentage + '%';
-}
+startDateHTML.innerHTML = startDate;
+totalSoberDaysHTML.innerHTML = totalSoberDays;
+totalDaysHTML.innerHTML = '/' + totalDays;
+totalSoberMonthHTML.innerHTML = soberDaysThisMonth;
+totalMonthHTML.innerHTML = '/' + today;
+longestStreakHTML.innerHTML = longestStreak;
+currentStreakHTML.innerHTML = currentStreak;
+totalPercentage = ((totalSoberDays * 100) / totalDays).toFixed(2);
+monthPercentage = ((soberDaysThisMonth * 100) / today).toFixed(2);
+percentageSoberDaysHTML.innerHTML = totalPercentage + '%';
+percentageSoberMonthHTML.innerHTML = monthPercentage + '%';
 
 curr = getCookie('username');
 
